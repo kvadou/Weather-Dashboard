@@ -1,4 +1,4 @@
-let apiKey = "3ac0d8db34de82819d13a9167239acc1";
+let apiKey = "084196fadb08fdb0d1e7e89c7acaf6d2";
 let searchBtn = $(".searchBtn");
 let searchInput = $(".searchInput");
 
@@ -20,7 +20,7 @@ var today = new Date();
 let dd = String(today.getDate()).padStart(2, '0');
 let mm = String(today.getMonth() + 1).padStart(2, '0');
 let yyyy = today.getFullYear();
-let today = mm + '/' + dd + '/' + yyyy;
+var today = mm + '/' + dd + '/' + yyyy;
 
 if (JSON.parse(localStorage.getItem("searchHistory")) === null) {
     console.log("searchHistory not found")
