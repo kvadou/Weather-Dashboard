@@ -28,3 +28,13 @@ if (JSON.parse(localStorage.getItem("searchHistory")) === null) {
     console.log("searchHistory loaded into searchHistoryArr");
     renderSearchHistory();
 }
+
+searchBtn.on("click", function(e) {
+    e.preventDefault();
+    if (searchInput.val() === "") {
+        alert("You must enter a city");
+        return;
+    }
+    console.log("clicked button")
+    getWeather(searchInput.val());
+});
