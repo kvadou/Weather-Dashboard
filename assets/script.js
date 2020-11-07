@@ -21,3 +21,10 @@ let dd = String(today.getDate()).padStart(2, '0');
 let mm = String(today.getMonth() + 1).padStart(2, '0');
 let yyyy = today.getFullYear();
 let today = mm + '/' + dd + '/' + yyyy;
+
+if (JSON.parse(localStorage.getItem("searchHistory")) === null) {
+    console.log("searchHistory not found")
+}else{
+    console.log("searchHistory loaded into searchHistoryArr");
+    renderSearchHistory();
+}
