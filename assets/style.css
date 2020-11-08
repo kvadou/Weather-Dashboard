@@ -40,16 +40,17 @@ header {
 h1, h3, p, li {
     font-family: 'Roboto', sans-serif;
 }
-
+/* header margins & padding */
 header h1 {
     margin: 0;
     padding-top: 10px;
 }
-
+/* html height */
 html {
     height: 100%;
 }
 
+/* input field size and border */
 input {
     border: 1px solid #cecfd2;
     border-radius: 5px;
