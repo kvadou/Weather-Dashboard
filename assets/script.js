@@ -1,21 +1,19 @@
+// API key and basic variables //
+
 let apiKey = "084196fadb08fdb0d1e7e89c7acaf6d2";
 let searchBtn = $(".searchBtn");
 let searchInput = $(".searchInput");
-
-// Left column locations
 let cityNameEl = $(".cityName");
 let currentDateEl = $(".currentDate");
 let weatherIconEl = $(".weatherIcon");
 let searchHistoryEl = $(".historyItems");
-
-// Right column locations
 let tempEl = $(".temp");
 let humidityEl = $(".humidity");
 let windSpeedEl = $(".windSpeed");
 let uvIndexEl = $(".uvIndex");
 let cardRow = $(".card-row");
 
-// Create a current date variable
+// Date variables //
 var today = new Date();
 let dd = String(today.getDate()).padStart(2, '0');
 let mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -29,6 +27,7 @@ if (JSON.parse(localStorage.getItem("searchHistory")) === null) {
     renderSearchHistory();
 }
 
+// Search button fucntion //
 searchBtn.on("click", function(e) {
     e.preventDefault();
     if (searchInput.val() === "") {
@@ -39,12 +38,14 @@ searchBtn.on("click", function(e) {
     getWeather(searchInput.val());
 });
 
+// weather history button functionality //
 $(document).on("click", ".historyEntry", function() {
     console.log("clicked history item")
     let thisElement = $(this);
     getWeather(thisElement.text());
 })
 
+// Creates an ordered list of past search history //
 function renderSearchHistory(cityName) {
     searchHistoryEl.empty();
     let searchHistoryArr = JSON.parse(localStorage.getItem("searchHistory"));
@@ -56,6 +57,7 @@ function renderSearchHistory(cityName) {
     }
 }
 
+// function to render the different weather elements for each city //
 function renderWeatherData(cityName, cityTemp, cityHumidity, cityWindSpeed, cityWeatherIcon, uvVal) {
     cityNameEl.text(cityName)
     currentDateEl.text(`(${today})`)
@@ -66,6 +68,7 @@ function renderWeatherData(cityName, cityTemp, cityHumidity, cityWindSpeed, city
     weatherIconEl.attr("src", cityWeatherIcon);
 }
 
+// GET function for the weather URL //
 function getWeather(desiredCity) {
     let queryUrl = `https://api.openweathermap.org/data/2.5/weather?q=${desiredCity}&APPID=${apiKey}&units=imperial`;
     $.ajax({
@@ -147,6 +150,7 @@ function getWeather(desiredCity) {
     }   
 }
 
+// function to create the diaplay card //
 function createForecastCard(date, icon, temp, humidity) {
 
     // HTML elements we will create to later
