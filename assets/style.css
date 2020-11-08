@@ -56,7 +56,7 @@ input {
     border-radius: 5px;
 }
 
-
+/* container size and padding */
 .container {
     display: flex;
     flex-direction: row;
@@ -64,6 +64,7 @@ input {
     height: 100%;
 }
 
+/* search field color and padding */
 .search {
     padding: 25px;
     background-color: #f5f6fa;
