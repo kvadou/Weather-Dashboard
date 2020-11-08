@@ -1,12 +1,13 @@
 * {
     box-sizing: border-box;
 }
-
+/* body formatting */
 body {
     height: 100%;
     margin: 0;
 }
 
+/* search button size and color */
 button{
     width: 120px;
     height: auto;
@@ -16,6 +17,7 @@ button{
     transition-duration: .4s;
 }
 
+/* hover color */
 button:hover {
     background-color: #feca57;
 }
